@@ -9,31 +9,26 @@ const PORT = process.env.PORT || 3001
 app.use(cors())
 app.use(express.json())
 
+// Debug middleware
+app.use((req, res, next) => {
+  console.log(`${new Date().toISOString()} - ${req.method} ${req.url}`)
+  console.log('Headers:', req.headers)
+  console.log('Body:', req.body)
+  next()
+})
+
 // In-memory storage for quotes
 const quotes = []
 
-// JWT Auth Stub Middleware
-const authMiddleware = (req, res, next) => {
-  const authHeader = req.headers.authorization
-
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return res.status(401).json({ message: "Unauthorized" })
-  }
-
-  // In a real app, you would verify the token here
-  // For this stub, we'll just pass through
-
-  next()
-}
-
 // Routes
 // Get all quotes
-app.get("/quotes", authMiddleware, (req, res) => {
+app.get("/api/quotes", (req, res) => {
+  console.log("GET /api/quotes - Sending quotes:", quotes)
   res.json(quotes)
 })
 
 // Get a specific quote
-app.get("/quotes/:id", authMiddleware, (req, res) => {
+app.get("/api/quotes/:id", (req, res) => {
   const quote = quotes.find((q) => q.id === req.params.id)
 
   if (!quote) {
@@ -44,23 +39,19 @@ app.get("/quotes/:id", authMiddleware, (req, res) => {
 })
 
 // Create a new quote
-app.post("/quotes", authMiddleware, (req, res) => {
-  const { products, notes } = req.body
+app.post("/api/quotes", (req, res) => {
+  const { customerName, products, date, total } = req.body
 
-  if (!products || !Array.isArray(products) || products.length === 0) {
-    return res.status(400).json({ message: "Products are required" })
+  if (!customerName || !products || !Array.isArray(products) || products.length === 0) {
+    return res.status(400).json({ message: "Customer name and products are required" })
   }
-
-  const now = new Date()
-  const expiresAt = new Date(now)
-  expiresAt.setDate(expiresAt.getDate() + 14) // 14 days by default
 
   const newQuote = {
     id: uuidv4(),
-    createdAt: now.toISOString(),
-    expiresAt: expiresAt.toISOString(),
+    customerName,
     products,
-    notes: notes || "",
+    date,
+    total,
   }
 
   quotes.push(newQuote)
@@ -68,30 +59,31 @@ app.post("/quotes", authMiddleware, (req, res) => {
 })
 
 // Update a quote
-app.put("/quotes/:id", authMiddleware, (req, res) => {
-  const { products, notes } = req.body
+app.put("/api/quotes/:id", (req, res) => {
+  const { customerName, products, date, total } = req.body
   const quoteIndex = quotes.findIndex((q) => q.id === req.params.id)
 
   if (quoteIndex === -1) {
     return res.status(404).json({ message: "Quote not found" })
   }
 
-  if (!products || !Array.isArray(products) || products.length === 0) {
-    return res.status(400).json({ message: "Products are required" })
+  if (!customerName || !products || !Array.isArray(products) || products.length === 0) {
+    return res.status(400).json({ message: "Customer name and products are required" })
   }
 
-  // Update the quote but keep the original id, createdAt, and expiresAt
   quotes[quoteIndex] = {
     ...quotes[quoteIndex],
+    customerName,
     products,
-    notes: notes || "",
+    date,
+    total,
   }
 
   res.json(quotes[quoteIndex])
 })
 
 // Delete a quote
-app.delete("/quotes/:id", authMiddleware, (req, res) => {
+app.delete("/api/quotes/:id", (req, res) => {
   const quoteIndex = quotes.findIndex((q) => q.id === req.params.id)
 
   if (quoteIndex === -1) {
