@@ -111,13 +111,16 @@ function ErrorState({ error }: { error: string }) {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+        <p className="font-bold">Error</p>
         <p>{error}</p>
-        <Link 
-          href="/"
-          className="text-blue-500 hover:text-blue-600 mt-2 inline-block"
-        >
-          Back to Quotes
-        </Link>
+        <div className="mt-4">
+          <Link 
+            href="/"
+            className="text-blue-500 hover:text-blue-600 mt-2 inline-block"
+          >
+            Back to Quotes
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -131,11 +134,33 @@ function QuoteData({ id }: { id: string }) {
 
   useEffect(() => {
     const fetchQuote = async () => {
+      if (!id) {
+        setError('Quote ID is required');
+        return;
+      }
+
       try {
+        console.log('Fetching quote with ID:', id);
         const data = await quoteService.getQuoteById(id);
+        console.log('Received quote data:', data);
         setQuote(data);
+        setError(null);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load quote');
+        console.error('Error fetching quote:', err);
+        let errorMessage = 'Failed to load quote. Please try again later.';
+        
+        if (err instanceof Error) {
+          if (err.message.includes('server is running')) {
+            errorMessage = 'Unable to connect to the server. Please ensure the server is running.';
+          } else if (err.message.includes('Invalid server response')) {
+            errorMessage = 'Server configuration error. Please check the server setup.';
+          } else {
+            errorMessage = err.message;
+          }
+        }
+        
+        setError(errorMessage);
+        setQuote(null);
       }
     };
 

@@ -1,15 +1,25 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { quoteService } from '@/lib/api/quotes';
 import type { Quote, Product } from '@/types';
+import ProductForm from '@/components/ProductForm';
 
-export default function EditQuotePage({ params }: { params: { id: string } }) {
+interface PageParams {
+  id: string;
+}
+
+interface EditQuotePageProps {
+  params: Promise<PageParams>;
+}
+
+export default function EditQuotePage({ params }: EditQuotePageProps) {
+  const { id } = React.use(params) as PageParams;
   const router = useRouter();
   const [customerName, setCustomerName] = useState('');
-  const [products, setProducts] = useState<Product[]>([{ name: '', price: 0, quantity: 1 }]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,7 +28,7 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
     const fetchQuote = async () => {
       try {
         setLoading(true);
-        const quote = await quoteService.getQuoteById(params.id);
+        const quote = await quoteService.getQuoteById(id);
         setCustomerName(quote.customerName);
         setProducts(quote.products);
         setError(null);
@@ -31,23 +41,7 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
     };
 
     fetchQuote();
-  }, [params.id]);
-
-  const addProduct = () => {
-    setProducts([...products, { name: '', price: 0, quantity: 1 }]);
-  };
-
-  const updateProduct = (index: number, field: keyof Product, value: string | number) => {
-    const newProducts = [...products];
-    newProducts[index] = { ...newProducts[index], [field]: value };
-    setProducts(newProducts);
-  };
-
-  const removeProduct = (index: number) => {
-    if (products.length > 1) {
-      setProducts(products.filter((_, i) => i !== index));
-    }
-  };
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -56,7 +50,7 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
 
     try {
       const total = products.reduce((sum, product) => sum + (product.price * product.quantity), 0);
-      await quoteService.updateQuote(params.id, {
+      await quoteService.updateQuote(id, {
         customerName,
         products,
         date: new Date().toISOString(),
@@ -64,12 +58,28 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
         status: 'draft'
       });
 
-      router.push(`/quotes/${params.id}`);
+      router.push('/quotes');
     } catch (error) {
       console.error('Error updating quote:', error);
       setError(error instanceof Error ? error.message : 'Failed to update quote');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  const addProduct = () => {
+    setProducts([...products, { name: '', price: 0, quantity: 1 }]);
+  };
+
+  const updateProduct = (index: number, updatedProduct: Product) => {
+    const newProducts = [...products];
+    newProducts[index] = updatedProduct;
+    setProducts(newProducts);
+  };
+
+  const removeProduct = (index: number) => {
+    if (products.length > 1) {
+      setProducts(products.filter((_, i) => i !== index));
     }
   };
 
@@ -89,7 +99,7 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
         <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
           <p>{error}</p>
           <Link 
-            href={`/quotes/${params.id}`}
+            href={`/quotes/${id}`}
             className="text-blue-500 hover:text-blue-600 mt-2 inline-block"
           >
             Back to Quote
@@ -103,7 +113,7 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-6">
         <Link 
-          href={`/quotes/${params.id}`}
+          href={`/quotes/${id}`}
           className="text-blue-500 hover:text-blue-600"
         >
           ← Back to Quote
@@ -141,64 +151,18 @@ export default function EditQuotePage({ params }: { params: { id: string } }) {
             </div>
 
             {products.map((product, index) => (
-              <div key={index} className="border rounded-lg p-4 mb-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Product Name
-                    </label>
-                    <input
-                      type="text"
-                      value={product.name}
-                      onChange={(e) => updateProduct(index, 'name', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Price
-                    </label>
-                    <input
-                      type="number"
-                      value={product.price}
-                      onChange={(e) => updateProduct(index, 'price', parseFloat(e.target.value))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      min="0"
-                      step="0.01"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Quantity
-                    </label>
-                    <input
-                      type="number"
-                      value={product.quantity}
-                      onChange={(e) => updateProduct(index, 'quantity', parseInt(e.target.value))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      min="1"
-                      required
-                    />
-                  </div>
-                </div>
-                {products.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeProduct(index)}
-                    className="text-red-500 hover:text-red-600"
-                  >
-                    Remove Product
-                  </button>
-                )}
-              </div>
+              <ProductForm
+                key={index}
+                product={product}
+                onChange={(updatedProduct) => updateProduct(index, updatedProduct)}
+                onRemove={() => removeProduct(index)}
+              />
             ))}
           </div>
 
           <div className="flex justify-end space-x-4">
             <Link
-              href={`/quotes/${params.id}`}
+              href={`/quotes/${id}`}
               className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded"
             >
               Cancel

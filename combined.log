@@ -1,0 +1,75 @@
+{"level":"info","message":"Server running in development mode at http://0.0.0.0:3001","timestamp":"2025-04-27T18:20:55.608Z"}
+{"level":"info","message":"Server running in development mode at http://0.0.0.0:3001","timestamp":"2025-04-27T18:21:02.513Z"}
+{"level":"info","message":"Server running in development mode at http://0.0.0.0:3001","timestamp":"2025-04-27T18:21:49.512Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:22:28.409Z"}
+{"body":{"customerName":"nwdjwndjn","date":"2025-04-27T18:22:38.971Z","products":[{"name":"mkfmkm","price":2,"quantity":1}],"total":2},"level":"info","message":"POST /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:22:39.562Z"}
+{"level":"info","message":"Created new quote","quoteId":"f543ee00-c3ca-4707-be7e-2921a9c74c19","timestamp":"2025-04-27T18:22:39.565Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:22:39.615Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:22:39.617Z"}
+{"level":"info","message":"Server running in development mode at http://localhost:3001","timestamp":"2025-04-27T18:24:31.105Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:39.921Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:39.929Z"}
+{"body":{"customerName":"nwdjwndjn","date":"2025-04-27T18:24:49.601Z","products":[{"name":"wdmkwdmk","price":2,"quantity":1}],"total":2},"level":"info","message":"POST /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:49.747Z"}
+{"level":"info","message":"Created new quote","quoteId":"88067aee-88ec-46ea-8c7d-20e7c387d161","timestamp":"2025-04-27T18:24:49.752Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:49.802Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:49.805Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:54.391Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:24:54.394Z"}
+{"level":"info","message":"Server running in development mode at http://localhost:3001","timestamp":"2025-04-27T18:26:03.924Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:26:10.766Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:26:10.774Z"}
+{"body":{"customerName":"wdmkwd","date":"2025-04-27T18:26:18.698Z","products":[{"name":"2nwkjqn","price":22,"quantity":1}],"total":22},"level":"info","message":"POST /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:26:18.717Z"}
+{"level":"info","message":"Created new quote","quoteId":"e25b79ab-d0bf-412c-a295-36b365f87327","timestamp":"2025-04-27T18:26:18.720Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:26:18.764Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:26:18.768Z"}
+{"level":"info","message":"Server running in development mode at http://localhost:3001","timestamp":"2025-04-27T18:28:18.706Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:28:20.551Z"}
+{"body":{"customerName":"dmkwdm","date":"2025-04-27T18:28:27.639Z","products":[{"name":"mdkwdmk","price":2,"quantity":1}],"total":2},"level":"info","message":"POST /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:28:27.664Z"}
+{"level":"info","message":"Created new quote","quoteId":"f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T18:28:27.669Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:28:27.717Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T18:28:27.720Z"}
+{"level":"info","message":"Server running in development mode at http://localhost:3001","timestamp":"2025-04-27T18:30:12.446Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:00:16.955Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:17:11.954Z"}
+{"level":"info","message":"GET /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:13.983Z"}
+{"level":"info","message":"Fetching quote with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:13.995Z"}
+{"level":"info","message":"Found quote: {\"id\":\"f043d1ec-a9dd-4440-86e6-1ec62a51b874\",\"customerName\":\"dmkwdm\",\"products\":[{\"name\":\"mdkwdmk\",\"price\":2,\"quantity\":1}],\"date\":\"2025-04-27T18:28:27.639Z\",\"total\":2,\"status\":\"draft\"}","timestamp":"2025-04-27T19:17:13.996Z"}
+{"level":"info","message":"GET /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:14.009Z"}
+{"level":"info","message":"Fetching quote with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:14.010Z"}
+{"level":"info","message":"Found quote: {\"id\":\"f043d1ec-a9dd-4440-86e6-1ec62a51b874\",\"customerName\":\"dmkwdm\",\"products\":[{\"name\":\"mdkwdmk\",\"price\":2,\"quantity\":1}],\"date\":\"2025-04-27T18:28:27.639Z\",\"total\":2,\"status\":\"draft\"}","timestamp":"2025-04-27T19:17:14.010Z"}
+{"body":{"customerName":"dmkwdm","date":"2025-04-27T19:17:22.394Z","products":[{"name":"mdkwdmk","price":2,"quantity":1}],"status":"draft","total":2},"level":"info","message":"PUT /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:22.419Z"}
+{"level":"info","message":"Updated quote","quoteId":"f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:22.432Z"}
+{"level":"info","message":"GET /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:22.861Z"}
+{"level":"info","message":"Fetching quote with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:22.861Z"}
+{"level":"info","message":"Found quote: {\"id\":\"f043d1ec-a9dd-4440-86e6-1ec62a51b874\",\"customerName\":\"dmkwdm\",\"products\":[{\"name\":\"mdkwdmk\",\"price\":2,\"quantity\":1}],\"date\":\"2025-04-27T19:17:22.394Z\",\"total\":2,\"status\":\"draft\"}","timestamp":"2025-04-27T19:17:22.862Z"}
+{"level":"info","message":"GET /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:22.877Z"}
+{"level":"info","message":"Fetching quote with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:22.877Z"}
+{"level":"info","message":"Found quote: {\"id\":\"f043d1ec-a9dd-4440-86e6-1ec62a51b874\",\"customerName\":\"dmkwdm\",\"products\":[{\"name\":\"mdkwdmk\",\"price\":2,\"quantity\":1}],\"date\":\"2025-04-27T19:17:22.394Z\",\"total\":2,\"status\":\"draft\"}","timestamp":"2025-04-27T19:17:22.879Z"}
+{"body":{},"level":"info","message":"DELETE /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:17:25.897Z"}
+{"level":"info","message":"Deleted quote","quoteId":"f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:17:25.898Z"}
+{"level":"info","message":"GET /api/quotes/f043d1ec-a9dd-4440-86e6-1ec62a51b874","params":{},"query":{},"timestamp":"2025-04-27T19:19:11.711Z"}
+{"level":"info","message":"Fetching quote with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:19:11.712Z"}
+{"level":"warn","message":"Quote not found with ID: f043d1ec-a9dd-4440-86e6-1ec62a51b874","timestamp":"2025-04-27T19:19:11.712Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:19:15.189Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:19:15.196Z"}
+{"body":{"customerName":"nwdjwndjn","date":"2025-04-27T19:19:27.645Z","products":[{"name":"njnjnjn","price":1,"quantity":1}],"total":1},"level":"info","message":"POST /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:19:27.660Z"}
+{"level":"info","message":"Created new quote","quoteId":"0011f167-4af4-47d9-abd9-38266b04301e","timestamp":"2025-04-27T19:19:27.666Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:19:27.744Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:19:27.750Z"}
+{"level":"info","message":"GET /api/quotes/0011f167-4af4-47d9-abd9-38266b04301e","params":{},"query":{},"timestamp":"2025-04-27T19:19:29.857Z"}
+{"level":"info","message":"Fetching quote with ID: 0011f167-4af4-47d9-abd9-38266b04301e","timestamp":"2025-04-27T19:19:29.858Z"}
+{"level":"info","message":"Found quote: {\"id\":\"0011f167-4af4-47d9-abd9-38266b04301e\",\"customerName\":\"nwdjwndjn\",\"products\":[{\"name\":\"njnjnjn\",\"price\":1,\"quantity\":1}],\"date\":\"2025-04-27T19:19:27.645Z\",\"total\":1,\"status\":\"draft\"}","timestamp":"2025-04-27T19:19:29.859Z"}
+{"level":"info","message":"GET /api/quotes/0011f167-4af4-47d9-abd9-38266b04301e","params":{},"query":{},"timestamp":"2025-04-27T19:19:29.881Z"}
+{"level":"info","message":"Fetching quote with ID: 0011f167-4af4-47d9-abd9-38266b04301e","timestamp":"2025-04-27T19:19:29.883Z"}
+{"level":"info","message":"Found quote: {\"id\":\"0011f167-4af4-47d9-abd9-38266b04301e\",\"customerName\":\"nwdjwndjn\",\"products\":[{\"name\":\"njnjnjn\",\"price\":1,\"quantity\":1}],\"date\":\"2025-04-27T19:19:27.645Z\",\"total\":1,\"status\":\"draft\"}","timestamp":"2025-04-27T19:19:29.883Z"}
+{"level":"info","message":"GET /api/quotes/0011f167-4af4-47d9-abd9-38266b04301e","params":{},"query":{},"timestamp":"2025-04-27T19:20:53.202Z"}
+{"level":"info","message":"Fetching quote with ID: 0011f167-4af4-47d9-abd9-38266b04301e","timestamp":"2025-04-27T19:20:53.205Z"}
+{"level":"info","message":"Found quote: {\"id\":\"0011f167-4af4-47d9-abd9-38266b04301e\",\"customerName\":\"nwdjwndjn\",\"products\":[{\"name\":\"njnjnjn\",\"price\":1,\"quantity\":1}],\"date\":\"2025-04-27T19:19:27.645Z\",\"total\":1,\"status\":\"draft\"}","timestamp":"2025-04-27T19:20:53.205Z"}
+{"body":{},"level":"info","message":"DELETE /api/quotes/0011f167-4af4-47d9-abd9-38266b04301e","params":{},"query":{},"timestamp":"2025-04-27T19:20:59.882Z"}
+{"level":"info","message":"Deleted quote","quoteId":"0011f167-4af4-47d9-abd9-38266b04301e","timestamp":"2025-04-27T19:20:59.898Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:21:00.472Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:21:00.476Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:21:04.674Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:21:04.679Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:26:01.805Z"}
+{"level":"info","message":"GET /api/quotes","params":{},"query":{},"timestamp":"2025-04-27T19:28:19.786Z"}
