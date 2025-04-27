@@ -12,19 +12,31 @@
 
 # production
 /build
+/dist
+
+# server
+/server/logs
+*.log
+error.log
+combined.log
 
 # misc
 .DS_Store
 *.pem
+Thumbs.db
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # local env files
 .env*.local
 .env
+.env.development
+.env.test
+.env.production
 
 # vercel
 .vercel
@@ -37,4 +49,15 @@ next-env.d.ts
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo
+*.swn
+*.bak
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db 
